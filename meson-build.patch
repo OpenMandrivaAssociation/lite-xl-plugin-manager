@@ -1,0 +1,26 @@
+diff -up lite-xl-plugin-manager-1.3.1/meson.build.fix lite-xl-plugin-manager-1.3.1/meson.build
+--- lite-xl-plugin-manager-1.3.1/meson.build.fix	2025-01-16 09:39:48.827129411 -0500
++++ lite-xl-plugin-manager-1.3.1/meson.build	2025-01-16 09:38:24.238598004 -0500
+@@ -8,7 +8,8 @@ cc = meson.get_compiler('c')
+ 
+ zlib_dep = dependency('zlib')
+ lzma_dep = dependency('liblzma')
+-mbedtls_dep = dependency('mbedtls', version: '<3', required: false)
++#mbedtls_dep = dependency('mbedtls', version: '<3', required: false)
++mbedtls_dep = dependency('mbedtls', required: false)
+ libgit2_dep = dependency('libgit2')
+ libzip_dep = dependency('libzip')
+ lua_dep = dependency('lua')
+@@ -16,8 +17,10 @@ lua_dep = dependency('lua')
+ if mbedtls_dep.found()
+     mbedtls_dep = [
+         mbedtls_dep,
+-        dependency('mbedx509', version: '<3', required: true),
+-        dependency('mbedcrypto', version: '<3', required: true),
++        #dependency('mbedx509', version: '<3', required: true),
++        dependency('mbedx509', required: true),
++        #dependency('mbedcrypto', version: '<3', required: true),
++        dependency('mbedcrypto', required: true),
+     ]
+ else
+     # Using has_headers to distinguish between mbedtls2 and mbedtls3
