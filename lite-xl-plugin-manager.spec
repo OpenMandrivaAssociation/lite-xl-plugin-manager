@@ -11,7 +11,7 @@
 %global debug_package %{nil}
 
 Name:           lite-xl-plugin-manager
-Version:        1.3.1%{?commit_tag_short:.%{commit_tag_short}}
+Version:        1.4.0
 Release:        1
 Summary:        A lite-xl plugin manager.
 Group:          Development
@@ -27,6 +27,7 @@ Source0:        %{url}/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar
 
 Patch0:         meson-build.patch
 
+BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  lib64git2-devel
 BuildRequires:  lib64mbedtls-devel
 BuildRequires:  lib64z-devel
