@@ -11,7 +11,7 @@
 %global debug_package %{nil}
 
 Name:           lite-xl-plugin-manager
-Version:        1.4.2
+Version:        1.4.5
 Release:        1
 Summary:        A lite-xl plugin manager.
 Group:          Development
